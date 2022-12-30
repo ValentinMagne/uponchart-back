@@ -4,13 +4,19 @@
 
 ### LOCALLY
 
-* Simply run with 
+* First start PostgreSQL with
+
+```shell
+docker-compose -f src/main/docker/docker-compose-dev.yml up -d
+```
+
+* Then simply start the app with 
 
 ```shell
 mvn spring-boot:run -Pdev
 ```
 
-* or create a package
+* or create a package before running the app
 
 ```shell
 mvn package -Dspring.profiles.active=dev
