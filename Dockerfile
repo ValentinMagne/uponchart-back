@@ -12,6 +12,4 @@ RUN mvn -f /home/app/pom.xml clean package -Pprod -DskipTests
 FROM eclipse-temurin:17-jdk-alpine
 COPY --from=build /home/app/target/uponchart-0.0.1-SNAPSHOT.jar uponchart.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","uponchart.jar"]
-# docker build -t vmagne/uponchart .
-# docker run -p 8080:8080 --rm -it vmagne/uponchart:latest
+ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","uponchart.jar"]
