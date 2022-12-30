@@ -1,7 +1,17 @@
+#
+# Build stage
+#
+FROM maven:3.8.3-openjdk-17 AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
+#
+# Package stage
+#
 FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-# mvn package -Dspring.profiles.active=dev
-COPY target/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY --from=build /home/app/target/uponchart-0.0.1-SNAPSHOT.jar /usr/local/lib/uponchart.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/usr/local/lib/uponchart.jar"]
 # docker build -t vmagne/uponchart .
-# docker run -p 8080:8080 vmagne/uponchart
+# docker run -p 8080:8080 --rm -it vmagne/uponchart:latest
