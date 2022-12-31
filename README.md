@@ -13,7 +13,9 @@ docker-compose -f src/main/docker/docker-compose-dev.yml up -d
 * Then simply start the app with 
 
 ```shell
-mvn spring-boot:run -Pdev
+mvn spring-boot:run
+# or 
+./mvnw
 ```
 
 * or create a package before running the app
