@@ -18,6 +18,9 @@
         <insert tableName="uc_authority">
             <column name="name" value="USER"/>
         </insert>
+        <insert tableName="uc_authority">
+            <column name="name" value="ANONYMOUS"/>
+        </insert>
         <createTable tableName="uc_user_authority">
             <column name="user_id" type="uuid">
                 <constraints nullable="false"/>
