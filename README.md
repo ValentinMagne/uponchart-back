@@ -31,6 +31,7 @@ java -jar -Dspring.profiles.active=dev target/uponchart-0.0.1-SNAPSHOT.jar
 * You have to configure a `.env` file with db variables : 
   * JDBC_DATABASE_USERNAME
   * JDBC_DATABASE_PASSWORD
+  * JDBC_DATABASE_URL
 
 ```shell
 docker build -t vmagne/uponchart .
