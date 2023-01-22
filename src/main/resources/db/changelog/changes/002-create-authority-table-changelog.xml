@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <property name="u_id" value="(gen_random_uuid())" dbms="postgresql"/>
+    <changeSet author="system" id="001">
+        <createTable tableName="uc_authority">
+            <column name="name" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="uc_authority">
+            <column name="name" value="ADMIN"/>
+        </insert>
+        <insert tableName="uc_authority">
+            <column name="name" value="USER"/>
+        </insert>
+        <insert tableName="uc_authority">
+            <column name="name" value="ANONYMOUS"/>
+        </insert>
+        <createTable tableName="uc_user_authority">
+            <column name="user_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="uc_user_authority">
+            <column name="user_id" value="d5a7bcc0-8fd3-4ea5-aaa1-f827c3393e6e"/>
+            <column name="authority_name" value="ADMIN"/>
+        </insert>
+        <insert tableName="uc_user_authority">
+            <column name="user_id" value="764baef3-7636-4246-94ff-f9aca10c591e"/>
+            <column name="authority_name" value="USER"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -11,16 +11,21 @@
             <column autoIncrement="false" name="id" type="uuid" defaultValueComputed="${u_id}">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="password" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
             <column name="login" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
         <insert tableName="uc_user">
             <column name="id" value="d5a7bcc0-8fd3-4ea5-aaa1-f827c3393e6e"/>
+            <column name="password" value="$2y$10$uJADiy/4xyJ7OWc4bAipHeGeOf1H0ivQAShyMmf8eL396X//AOgR2"/>
             <column name="login" value="admin@uponchart.com"/>
         </insert>
         <insert tableName="uc_user">
             <column name="id" value="764baef3-7636-4246-94ff-f9aca10c591e"/>
+            <column name="password" value="$2y$10$uJADiy/4xyJ7OWc4bAipHeGeOf1H0ivQAShyMmf8eL396X//AOgR2"/>
             <column name="login" value="user@uponchart.com"/>
         </insert>
     </changeSet>
