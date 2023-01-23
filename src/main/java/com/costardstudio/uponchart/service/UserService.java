@@ -1,10 +1,11 @@
 package com.costardstudio.uponchart.service;
 
-import com.costardstudio.uponchart.entity.UserEntity;
+import com.costardstudio.uponchart.models.User;
 import com.costardstudio.uponchart.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -15,7 +16,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<UserEntity> getUsers() {
-        return this.userRepository.findAll();
+    public List<User> getUsers() {
+        return this.userRepository.findAll().stream().map(User::new).collect(Collectors.toList());
     }
 }

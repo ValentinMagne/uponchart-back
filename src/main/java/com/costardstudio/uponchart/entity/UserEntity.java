@@ -45,7 +45,7 @@ public class UserEntity implements UserDetails {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<AuthorityEntity> getAuthorities() {
         return authorities;
     }
 
