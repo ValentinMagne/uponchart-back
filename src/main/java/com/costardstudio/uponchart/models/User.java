@@ -11,6 +11,7 @@ public class User {
     UUID id;
     String login;
     Set<String> authorities;
+    Boolean consented;
 
     public User() {
     }
@@ -19,6 +20,7 @@ public class User {
         this.id = userEntity.getId();
         this.login = userEntity.getLogin();
         this.authorities = userEntity.getAuthorities().stream().map(AuthorityEntity::getName).collect(Collectors.toSet());
+        this.consented = userEntity.getAccessToken() != null && userEntity.getRefreshToken() != null;
     }
 
     public UUID getId() {
@@ -43,5 +45,13 @@ public class User {
 
     public void setAuthorities(Set<String> authorities) {
         this.authorities = authorities;
+    }
+
+    public Boolean getConsented() {
+        return consented;
+    }
+
+    public void setConsented(Boolean consented) {
+        this.consented = consented;
     }
 }

@@ -5,11 +5,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.BatchSize;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "uc_user")
@@ -35,6 +36,11 @@ public class UserEntity implements UserDetails {
     private String password;
 
     private String login;
+
+    @Column(name = "access_token")
+    private String accessToken;
+    @Column(name = "refresh_token")
+    private String refreshToken;
 
     public UUID getId() {
         return id;
@@ -67,6 +73,22 @@ public class UserEntity implements UserDetails {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 
     @Override

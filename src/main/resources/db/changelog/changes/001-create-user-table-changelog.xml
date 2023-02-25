@@ -17,6 +17,10 @@
             <column name="login" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="access_token" type="VARCHAR(4000)">
+            </column>
+            <column name="refresh_token" type="VARCHAR(255)">
+            </column>
         </createTable>
         <insert tableName="uc_user">
             <column name="id" value="d5a7bcc0-8fd3-4ea5-aaa1-f827c3393e6e"/>
