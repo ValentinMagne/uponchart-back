@@ -28,10 +28,12 @@ java -jar -Dspring.profiles.active=dev target/uponchart-0.0.1-SNAPSHOT.jar
 ### DOCKER 
 
 * Warning : prod config
-* You have to configure a `.env` file with db variables : 
+* You have to configure a `.env` file with db variables :
   * JDBC_DATABASE_USERNAME
   * JDBC_DATABASE_PASSWORD
   * JDBC_DATABASE_URL
+  * EBAY_CERT_ID
+  * PORT #8080
 
 ```shell
 docker build -t vmagne/uponchart .
