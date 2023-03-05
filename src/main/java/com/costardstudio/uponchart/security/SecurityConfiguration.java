@@ -30,6 +30,7 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/login").permitAll()
+                .requestMatchers("/register").permitAll()
                 .requestMatchers("/alive").permitAll()
                 .and()
                 .authorizeHttpRequests().requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
